@@ -1,12 +1,17 @@
+/* eslint-disable camelcase */
 const axios = require('axios');
-const chalk = require("chalk")
-const params = require('./params')
+const chalk = require('chalk');
+const params = require('./params');
 
-const { config, closeBodyParameters, closeURL, recursiveSearchBody, searchBodyParameters, searchUrl } = params
+const {
+  config, closeBodyParameters, closeURL, recursiveSearchBody, searchBodyParameters, searchUrl,
+} = params;
 
 
-let count = 1
+let count = 1;
 let listOfConversations = [];
+
+// Add conversations to conversations array
 
 const addConversations = (conversations) => {
   conversations.forEach((conversation) => {
@@ -15,24 +20,27 @@ const addConversations = (conversations) => {
 };
 
 
-
+// Recursive loop to call each page of data from the Intercom API
+// eslint-disable-next-line consistent-return
 const fetchPages = async (starting_after) => {
   if (starting_after) {
-    console.log(`Fetching conversation from page: ${count}`)
-    count++
-    recursiveSearchBody.pagination.starting_after = starting_after
+    console.log(`Fetching conversation from page: ${count}`);
+    count += 1;
+    recursiveSearchBody.pagination.starting_after = starting_after;
     const response = await axios.post(searchUrl, recursiveSearchBody, config).catch((error) => {
       console.log(
-        chalk.bold.bgRed("\n\nError: ") +
-        `Failed to get get page ${count}. Server Returned - ${error}\n\n`
+        `${chalk.bold.bgRed('\n\nError: ')
+        }Failed to get get page ${count}. Server Returned - ${error}\n\n`,
       );
-    })
+    });
     if (response.data.pages.next) {
       const nextResponse = await fetchPages(response.data.pages.next.starting_after);
-      return [response].concat(nextResponse)
+      return [response].concat(nextResponse);
     }
   }
-}
+};
+
+// Iterate over conversatiosn list and call the Intercom API to close each
 
 const closeConversation = (conversationIDs) => {
   const interval = 100;
@@ -41,14 +49,14 @@ const closeConversation = (conversationIDs) => {
     promise = promise.then(() => {
       axios
         .post(
-          closeURL + `${conversation}/parts`,
+          `${closeURL}${conversation}/parts`,
           closeBodyParameters,
-          config
+          config,
         )
         .catch((error) => {
           console.log(
-            chalk.bold.bgRed("\n\nError: ") +
-            `Failed to get close conversations. Server Returned - ${error}\n\n`
+            `${chalk.bold.bgRed('\n\nError: ')
+            }Failed to get close conversations. Server Returned - ${error}\n\n`,
           );
         });
       return new Promise((resolve) => {
@@ -57,76 +65,79 @@ const closeConversation = (conversationIDs) => {
     });
   });
   promise.then(() => {
-    listOfConversations = []
+    listOfConversations = [];
 
-    //Set timeout on this call for a few seconds to allow intercom API to update conversation count. 
+    // Set timeout on this call for a few seconds to allow
+    // Intercom API to update conversation count.
 
     setTimeout(() => {
       axios
         .post(searchUrl, searchBodyParameters, config)
         .then((response) => {
           if (response.data.total_count > 0) {
-            console.log(`Total number of conversation on new loop: ${response.data.total_count}`)
-            clearIntercom()
-          }
-          else {
+            console.log(`Total number of conversation on new loop: ${response.data.total_count}`);
+            // Loop through once again if all conversations are not closed
+            // eslint-disable-next-line no-use-before-define
+            clearIntercom();
+          } else {
             console.log(
-              "\n\n" +
-              chalk.bold.bgBlue(
-                "Complete!                                     "
-              ) +
-              "\n\n"
+              `\n\n${
+                chalk.bold.bgBlue(
+                  'Complete!                                     ',
+                )
+              }\n\n`,
             );
             console.log(
-              "You are all done. Thank you for using the clear-intercom app!\n\n"
+              'You are all done. Thank you for using the clear-intercom app!\n\n',
             );
           }
         }).catch((error) => {
           console.log(
-            chalk.bold.bgRed("\n\nError: ") +
-            `Failed to get close remaining conversations. Server Returned - ${error}\n\n`
+            `${chalk.bold.bgRed('\n\nError: ')
+            }Failed to get close remaining conversations. Server Returned - ${error}\n\n`,
           );
-        })
-    }, 5000)
+        });
+    }, 5000);
   });
-}
+};
 
 const clearIntercom = () => {
   axios
     .post(searchUrl, searchBodyParameters, config)
     .then((response) => {
-      console.log(`Total Number of conversations: ${response.data.total_count}`)
+      console.log(`Total Number of conversations: ${response.data.total_count}`);
       const { conversations } = response.data;
-      addConversations(conversations)
+      addConversations(conversations);
       const { totalPages } = response.data.pages;
+      // Set condition to skip 'Fetch Pages' call there is just a single page of data
       if (totalPages > 1) {
-        const { starting_after } = response.data.pages.next
+        const { starting_after } = response.data.pages.next;
+        // eslint-disable-next-line no-shadow
         const responseCollection = async (starting_after) => {
           const results = await fetchPages(starting_after);
           results.forEach((result) => {
+            // Pagination is unreliable on Intercom API,
+            // it may not return a value for the final page
             if (result !== undefined) {
-              const { conversations } = result.data
-              addConversations(conversations)
+              // eslint-disable-next-line no-shadow
+              const { conversations } = result.data;
+              addConversations(conversations);
             }
-          })
-          closeConversation(listOfConversations)
-        }
-        responseCollection(starting_after)
-      }
-      else {
-        console.log(`Final Loop Starting.`)
-        closeConversation(listOfConversations)
+          });
+          closeConversation(listOfConversations);
+        };
+        responseCollection(starting_after);
+      } else {
+        console.log('Final Loop Starting.');
+        closeConversation(listOfConversations);
       }
     }).catch((error) => {
       console.log(
-        chalk.bold.bgRed("\n\nError: ") +
-        `Failed to get number of pages. Server Returned - ${error}\n\n`
+        `${chalk.bold.bgRed('\n\nError: ')
+        }Failed to get number of pages. Server Returned - ${error}\n\n`,
       );
-    })
-}
+    });
+};
 
 
-module.exports = clearIntercom
-
-
-
+module.exports = clearIntercom;
