@@ -44,7 +44,6 @@ const recursiveSearchBody = {
     ],
   },
   pagination: {
-    per_page: 1,
     starting_after: '',
   },
 };
@@ -70,9 +69,6 @@ const searchBodyParameters = {
         value: true,
       },
     ],
-  },
-  pagination: {
-    per_page: 1,
   },
 };
 
