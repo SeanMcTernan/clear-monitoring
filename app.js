@@ -19,7 +19,7 @@ const app = () => {
   let country = '';
   let rememberMeToken = '';
 
-  console.log(`${chalk.bold.bgBlue('\n\n Welcome!                                     ')}\n\nWelcome to the clear-monitoring application. Use your arrow keys & enter key to follow through the prompts below. If you get stuck at any step. Please refer to the PDF guide that came in the clear-monitoring folder. You can hit Ctrl+C at any time to quite this process.\n\n${chalk.bold.bgBlue(' Step 1:                                      ')}\n\n`);
+  console.log(`${chalk.bold.bgBlue('\n\n Welcome!                                     ')}\n\nWelcome to the clear-monitoring application. Use your arrow keys & enter key to follow through the prompts below. If you get stuck at any step. Please refer to the PDF guide that came in the clear-monitoring folder. You can hit Ctrl+C at any time to quit this process.\n\n${chalk.bold.bgBlue(' Step 1:                                      ')}\n\n`);
   // ##First Question - Which actions to execute##
   inquirer.prompt(q1).then((answers1) => {
     // Setting the varibales
@@ -31,7 +31,7 @@ const app = () => {
       const email = answers2.userEmail;
       rememberMeToken = answers2.rememberMe.trim();
       console.log(`\n\n${chalk.bold.bgBlue(' Step 2:                                      ')}\n\n`);
-      console.log(`\n\nNext, copy the following code highlighted in${chalk.bold.underline.green(' green ')}below into the DB Queries panel on the ${chalk.bold('Stand/Country')} you need and, execute it:\n\n${chalk.green(`db.admin_monitoring.find({"email" :\n "${email.trim()}"}).forEach(function(am) {\n
+      console.log(`\n\nNext, copy the following code highlighted in${chalk.bold.underline.green(' green ')}below into the DB Queries panel on the ${chalk.bold('Stand/Country')} you need, and execute it:\n\n${chalk.green(`db.admin_monitoring.find({"email" :\n "${email.trim()}"}).forEach(function(am) {\n
            print(am._id.valueOf());\n
        })`)}\n\nThen copy the values into a file called data.csv and save it in the monitoring-clear folder. \n\n`);
       // ##Third Question - Ready to continue?##
