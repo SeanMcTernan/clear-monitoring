@@ -27,21 +27,16 @@ const recursiveSearchBody = {
     operator: 'AND',
     value: [
       {
-        field: 'source.author.id',
-        operator: '=',
-        value: '5e700e057f912ce67407c127',
-      },
-      {
         field: 'source.subject',
         operator: '~',
-        value: 'compliance',
+        value: 'ST Message Queued for Compliance.'
       },
       {
         field: 'open',
         operator: '=',
-        value: true,
-      },
-    ],
+        value: true
+      }
+    ]
   },
   pagination: {
     starting_after: '',
@@ -54,21 +49,16 @@ const searchBodyParameters = {
     operator: 'AND',
     value: [
       {
-        field: 'source.author.id',
-        operator: '=',
-        value: '5e700e057f912ce67407c127',
-      },
-      {
         field: 'source.subject',
         operator: '~',
-        value: 'compliance',
+        value: 'ST Message Queued for Compliance.'
       },
       {
         field: 'open',
         operator: '=',
-        value: true,
-      },
-    ],
+        value: true
+      }
+    ]
   },
 };
 

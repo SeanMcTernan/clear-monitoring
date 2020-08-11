@@ -43,7 +43,7 @@ const fetchPages = async (starting_after) => {
 // Iterate over conversatiosn list and call the Intercom API to close each
 
 const closeConversation = (conversationIDs) => {
-  const interval = 100;
+  const interval = 300;
   let promise = Promise.resolve();
   conversationIDs.forEach((conversation) => {
     promise = promise.then(() => {
@@ -75,16 +75,15 @@ const closeConversation = (conversationIDs) => {
         .post(searchUrl, searchBodyParameters, config)
         .then((response) => {
           if (response.data.total_count > 0) {
-            console.log(`Total number of conversation on new loop: ${response.data.total_count}`);
             // Loop through once again if all conversations are not closed
             // eslint-disable-next-line no-use-before-define
             clearIntercom();
           } else {
             console.log(
               `\n\n${
-                chalk.bold.bgBlue(
-                  'Complete!                                     ',
-                )
+              chalk.bold.bgBlue(
+                'Complete!                                     ',
+              )
               }\n\n`,
             );
             console.log(
@@ -128,7 +127,6 @@ const clearIntercom = () => {
         };
         responseCollection(starting_after);
       } else {
-        console.log('Final Loop Starting.');
         closeConversation(listOfConversations);
       }
     }).catch((error) => {
