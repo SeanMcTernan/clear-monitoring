@@ -29,7 +29,7 @@ const recursiveSearchBody = {
       {
         field: 'source.subject',
         operator: '~',
-        value: 'ST Message Queued for Compliance.'
+        value: 'compliance'
       },
       {
         field: 'open',
@@ -51,7 +51,7 @@ const searchBodyParameters = {
       {
         field: 'source.subject',
         operator: '~',
-        value: 'ST Message Queued for Compliance.'
+        value: 'compliance'
       },
       {
         field: 'open',
