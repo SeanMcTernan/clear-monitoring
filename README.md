@@ -9,13 +9,16 @@ Clear Monitoring is an App that was build to help support staff close thousands 
 
 
 ## Technologies Used
-* <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">NodeJS</a>
-* <a href="https://www.npmjs.com/package/axios" target="_blank">Axios</a>
-* <a href="https://www.npmjs.com/package/chalk" target="_blank">Chalk</a>
-* <a href="https://www.npmjs.com/package/ENV-CMD" target="_blank">ENV-CMD</a>
-* <a href="https://www.npmjs.com/package/Inquirer" target="_blank">Inquirer</a>
-* <a href="https://www.npmjs.com/package/Nodemon" target="_blank">Nodemon</a>
-* <a href="https://www.npmjs.com/package/Request" target="_blank">Request</a>
+| Name                                                        | Purpose                                                                                                    |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [NodeJS](https://nodejs.org/en/)         | Main programming langauge for the project |
+| [Axios](https://www.npmjs.com/package/axios)                      | To make requests to the Intercom API |
+| [Chalk](https://www.npmjs.com/package/chalk) | To provide nicer visuals on the command prompts                                                          |
+| [ENV-CMD](https://www.npmjs.com/package/env-cmd)                     | To set environment variables                                                                                        |
+| [NPM](https://www.npmjs.com/)                                | As a package manager                                                         |
+| [Inquirer](https://www.npmjs.com/package/inquirer)               | To manage the questions asked via the CLI                                                                                 |
+| [Nodemon](https://www.npmjs.com/package/nodemon)                            | Restart the app during development                                                                                       |
+| [Request](https://www.npmjs.com/package/request)                                   | To call the SimpleTexting API    
 
 ### The App
 
