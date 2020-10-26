@@ -33,7 +33,7 @@ Below is a small snippet of the app in action. As you can see the emails are bei
 
 ### Motivation & what was learned
 
-The app was originally created to assist fellow support staff. The process before was rather laborious to close out open conversations in Intercom during a rush. I really felt there was a better more efficient way to close out these conversations and this is where the app was born. Along the way I learned some neat technologies like Inquirer and Chalk, though the biggest takeaway for me was the finally getting a solid grasp of asynchronous functions. The app need to call the intercom API continuously while it was running so getting comfortable with asynchronous functions was quite vital to the successful rollout of the app. 
+The app was originally created to assist fellow support staff. The process before was rather laborious to close out open conversations in Intercom during a rush. I really felt there was a better more efficient way to close out these conversations and this is where the app was born. Along the way I learned some neat technologies like Inquirer and Chalk, though the biggest takeaway was finally getting a solid grasp of asynchronous functions. The app needed to call the intercom API continuously while it was running, so getting comfortable with asynchronous functions was vital to the successful rollout of the app. 
 
 ### Install Instructions
 To install/run the app navigate to the app folder and run <code>Node App</code>. Note API keys are required to run the app successfully which have not been provided in this repo. Running the app is strictly for demo purposes only. 
