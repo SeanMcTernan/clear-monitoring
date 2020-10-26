@@ -9,7 +9,7 @@ Clear Monitoring is an App that was build to help support staff close thousands 
 
 
 ## Technologies Used
-* <a href="https://nodejs.org/en/" target="_blank">NodeJS</a>
+* <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">NodeJS</a>
 * <a href="https://www.npmjs.com/package/axios" target="_blank">Axios</a>
 * <a href="https://www.npmjs.com/package/chalk" target="_blank">Chalk</a>
 * <a href="https://www.npmjs.com/package/ENV-CMD" target="_blank">ENV-CMD</a>
