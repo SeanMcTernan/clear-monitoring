@@ -45,4 +45,4 @@ The app was originally created to assist fellow support staff. The process befo
 3. Add an intercom API in the following location `credentials/credentials.js`Api Keys available at [Intercom](https://www.intercom.com/) 
 4. Run `node app`
 
-### Time Spent: 3 Weeks
+### Development Time: 3 Weeks
