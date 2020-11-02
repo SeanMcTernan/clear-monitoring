@@ -11,7 +11,7 @@ Clear Monitoring is an App that was build to help support staff close thousands 
 ## Technologies Used
 | Name                                                        | Purpose                                                                                                    |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [NodeJS](https://nodejs.org/en/)         | Main programming langauge for the project |
+| [NodeJS](https://nodejs.org/en/)         | Main programming language for the project |
 | [Axios](https://www.npmjs.com/package/axios)                      | To make requests to the Intercom API |
 | [Chalk](https://www.npmjs.com/package/chalk) | To provide nicer visuals on the command prompts                                                          |
 | [ENV-CMD](https://www.npmjs.com/package/env-cmd)                     | To set environment variables                                                                                        |
@@ -26,7 +26,7 @@ Clear Monitoring is an App that was build to help support staff close thousands 
   <img src="https://github.com/SeanMcTernan/SeanMcTernan/blob/main/Clear_Monitoring_Sample.png?raw=true" alt="Clear Monitoring CLI" width="738">
 </p>
 
-Below is a small snippet of the app in action. As you can see the emails are being closed at an extrememly quick rate. The altenative, was to manually enter each email and select the close option. 
+Below is a small snippet of the app in action. As you can see the emails are being closed at an extremely quick rate. The alternative, was to manually enter each email and select the close option.  
 
 <p align="center">
 <img src="https://github.com/SeanMcTernan/SeanMcTernan/blob/main/Intercom.gif?raw=true"
