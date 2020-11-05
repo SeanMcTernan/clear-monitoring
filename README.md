@@ -1,7 +1,7 @@
-# Clear Monitoring <a href="https://github.com/SeanMcTernan" target="_blank"><img src="https://raw.githubusercontent.com/SeanMcTernan/SeanMcTernan/140c9255ba95e71fc0988bc36cc1f327fe360b9f/ReadMe_Badge.svg" width="120"/></a>
+# Clear Monitoring <a href="https://github.com/SeanMcTernan" target="_blank"><img src="https://raw.githubusercontent.com/SeanMcTernan/SeanMcTernan/940a359ef8a199aac0fe3e5cecaaef3d01e17542/ReadMe_Images/ReadMe_Badge_Small.svg" alt="Site badge By Sean Mc Ternan" width="120"/></a>
 
 
-<img src="https://raw.githubusercontent.com/SeanMcTernan/SeanMcTernan/342bcf0aafc064e7fbb3c56c9b7a444ce3585ca7/Clear-Monitoring_Logo.svg" align="right"
+<img src="https://raw.githubusercontent.com/SeanMcTernan/SeanMcTernan/940a359ef8a199aac0fe3e5cecaaef3d01e17542/ReadMe_Images/Clear_Monitoring/Clear-Monitoring_Logo.svg" align="right"
      alt="Clear-Monitoring App Image By Sean Mc Ternan " width="120" height="178">
 
 
@@ -23,13 +23,13 @@ Clear Monitoring is an App that was build to help support staff close thousands 
 ### The App
 
 <p align="center">
-  <img src="https://github.com/SeanMcTernan/SeanMcTernan/blob/main/Clear_Monitoring_Sample.png?raw=true" alt="Clear Monitoring CLI" width="738">
+  <img src="https://github.com/SeanMcTernan/SeanMcTernan/blob/master/ReadMe_Images/Clear_Monitoring/Clear_Monitoring_Sample.png?raw=true" alt="Clear Monitoring CLI" width="738">
 </p>
 
 Below is a small snippet of the app in action. As you can see the emails are being closed at an extremely quick rate. The alternative, was to manually enter each email and select the close option.  
 
 <p align="center">
-<img src="https://github.com/SeanMcTernan/SeanMcTernan/blob/main/Intercom.gif?raw=true"
+<img src="https://github.com/SeanMcTernan/SeanMcTernan/blob/master/ReadMe_Images/Clear_Monitoring/Intercom.gif?raw=true"
   alt="Gif showing intercom emails being closed en masse"
   width="500">
 </p>
